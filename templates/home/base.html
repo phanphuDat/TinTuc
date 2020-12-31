@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Home{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+</head>
+{{ mess }}
+<body>
+{#    <div class="main    ">#}
+    <header>
+        <a href="{% url 'home:index' %} "><h1>Tech News &#8211 24h</h1></a>
+        <p>Update Latest Technology News. Technology product evaluation. Information technology at home and abroad during the day.</p>
+        <button class="btn_hd"><a href="{% url 'home:index' %}">Home</a>  </button>
+        <button class="btn_hd"><a href="#connectid">Connect Us</a> </button>
+    </header>
+{% block content %}
+{% endblock content %}
+    <footer>
+            <div class="end-footer">
+                <div class="one-fo">
+                    <a href="#">
+                        <img src="{% static 'images/logo.png' %}" alt="">
+
+                    </a>
+                    <br>
+                    <p>
+                        Contact us: <br> <br>
+                        Email: phongdat.20022000@gmail.com <br>
+                        Phone: 0339 771 126 <br>
+                        Address: Phuoc ly - Hoa minh - Lien Chieu - Da Nang
+                    </p>
+                    <br>
+                    Tech News &copy; 2020
+                </div>
+                <!-- Begin Mailchimp Signup Form -->
+                <div id="connectid" >
+                <form class="connect" action="{% url 'home:index' %}" method="post">
+                    {% csrf_token            %}
+                    <div class="connect">
+                        <h2>Subscribe to our Newsletter</h2>
+                    </div>
+                    <div class="connect">
+                        <input type="text" placeholder="Email address" name="email" required>
+                        <input type="text" placeholder="Full Name" name="fname" required>
+                        <label>
+                        <input type="checkbox" checked="checked" name="subscribe"> Daily Newsletter
+                        </label>
+                    </div>
+
+                    <div class="connect">
+                        <input type="submit" value="Subscribe">
+                    </div>
+
+                </form>
+            </div>
+                <!--End mc_embed_signup-->
+            </div>
+        </footer>
+    {#    </div>#}
+</body>
+</html>

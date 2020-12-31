@@ -1,0 +1,52 @@
+{% extends 'home/base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+    <div class="content">
+        <div class="first">
+            <div class="n1">
+                <a href="https://genk.vn/ro-ri-teaser-chinh-thuc-cua-samsung-galaxy-s21-s21-plus-va-s21-ultra-20201209094615637.chn">
+                    <img width="100%"
+                         src="https://genk.mediacdn.vn/zoom/460_281/139269124445442048/2020/12/9/photo1607481978430-16074819788481429162068.gif"
+                         alt="utra">
+                </a>
+                <h2>
+                    <a href="https://genk.vn/ro-ri-teaser-chinh-thuc-   cua-samsung-galaxy-s21-s21-plus-va-s21-ultra-20201209094615637.chn">Samsung
+                        Galaxy S21, S21 Plus and S21 Ultra official teaser leaks</a>
+                </h2>
+                <span>
+                        Samsung's next flagship smartphones, the Galaxy S21, S21 Plus, and S21 Ultra, will be officially launched in January.
+                    {% lorem %}</span>
+            </div>
+            <div class="n2">
+                {% for  item in post2 %}
+                    <div class="n2_1">
+                        <a href="{% url 'home:post' item.post_id %}">
+                            <img class="img_" src="{{ item.photo.url }}" width="200px" alt=""> </a>
+                        <h2><a href="{% url 'home:post' item.post_id %}">{{ item.ten }}</a></h2>
+                        <span class="gon">{{ item.link }}</span>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="second">
+            <section>
+                {% for  item in post %}
+                    <article class="column-second">
+                        <a class="row"
+                           href="{% url 'home:post' item.post_id %}">
+                            <div class="column">
+                                <img class="img_" src="{{ item.photo.url }}" width="300px" alt="">
+                            </div>
+                            <div class="column">
+                                <h4>{{ item.ten }}</h4>
+                                <span>{{ item.link }}</span>
+                            </div>
+                        </a>
+                    </article>
+                {% endfor %}
+            </section>
+        </div>
+    </div>
+
+{% endblock content %}
